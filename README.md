@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Тестовое задание SPA на React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+Это простая SPA-страница на React с TypeScript и Redux Toolkit.  
+Проект демонстрирует работу с карточками продуктов: просмотр, добавление в избранное, удаление и создание новых карточек.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Цель задания — показать умение работать с фронтендом, управлять состоянием через Redux и взаимодействовать с API.  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Функционал
 
-## Expanding the ESLint configuration
+- Просмотр списка продуктов на странице `/products`
+- Добавление и удаление продуктов из избранного
+- Удаление карточки (через флаг `deleted` в сторе)
+- Открытие подробной информации о продукте на странице `/products/:id`
+- Создание нового продукта на странице `/create-product` через форму с валидацией
+- Сброс хранилища localStorage с восстановлением из API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> **Примечание:**  
+> При удалении карточки она не удаляется полностью из стора, а помечается флагом `deleted`. Это сделано для удобства локального состояния, хотя можно было полностью удалять объект.  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Что не реализовано / ограничения
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Бонусная часть:
+  - Пагинация списка
+  - Редактирование карточек после создания
+  - Расширенная фильтрация и поиск
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Технологии
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React + TypeScript
+- Redux Toolkit
+- Tailwind CSS
+- Vite
+- React Router
+- React Hook Form
+
+---
+
+## Установка и запуск
+
+1. Клонировать репозиторий:
+
+git clone <git@github.com:TobyThorneA/product-app.git>
+cd <product-app>
+
+2. Установить зависимости
+ 
+npm install
+
+3. Запуск в режиме разработки
+
+npm run dev
+
+4. Сборка проекта для деплоя:
+
+npm run build
+
+## Примечания
+- Все изменения данных хранятся в Redux store и синхронизируются с localStorage.
+- API-запрос осуществляется один раз при первой загрузке и при сбросе хранилища.
+- Фильтрация реализована только по избранным карточкам.
