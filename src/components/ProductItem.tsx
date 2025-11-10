@@ -31,28 +31,29 @@ const ProductItem: React.FC<IProduct> = ({
         className="h-40 sm:h-48 md:h-52 lg:h-56 object-cover w-full"
       />
 
-      <div className="flex flex-col flex-1 p-4 gap-2">
-        <h3 className="text-base sm:text-lg font-semibold line-clamp-2 text-gray-800">
-          {name}
-        </h3>
+<div className="flex flex-col flex-1 p-4 gap-2">
+  <h3 className="text-base sm:text-lg font-semibold line-clamp-2 text-gray-800">
+    {name}
+  </h3>
 
-        <div className="flex items-center gap-2">
-          <span className="text-red-500 font-semibold text-sm sm:text-base">
-            {price} ₽
-          </span>
-          {oldPrice && (
-            <span className="text-gray-400 line-through text-xs sm:text-sm">
-              {oldPrice} ₽
-            </span>
-          )}
-        </div>
+  <div className="flex items-center gap-2">
+    <span className="text-red-500 font-semibold text-sm sm:text-base">
+      {price} ₽
+    </span>
+    {oldPrice && (
+      <span className="text-gray-400 line-through text-xs sm:text-sm">
+        {oldPrice} ₽
+      </span>
+    )}
+  </div>
 
-        <p
-          className="text-gray-600 text-xs sm:text-sm line-clamp-3 flex-1"
-          title={description}
-        >
-          {description}
-        </p>
+  <p
+    className="text-gray-600 text-xs sm:text-sm line-clamp-3 overflow-hidden h-[3.6rem] sm:h-[4.2rem] flex-shrink-0"
+    title={description}
+  >
+    {description}
+  </p>
+
 
         <div
           className="flex justify-between items-center pt-2 border-t border-gray-100"
